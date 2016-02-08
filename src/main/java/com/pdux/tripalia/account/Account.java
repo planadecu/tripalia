@@ -1,7 +1,5 @@
 package com.pdux.tripalia.account;
 
-import java.time.ZonedDateTime;
-
 import javax.persistence.*;
 
 import java.time.Instant;
