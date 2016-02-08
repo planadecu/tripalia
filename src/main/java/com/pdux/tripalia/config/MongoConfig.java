@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.core.convert.MongoTypeMapper;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
 
-@Configuration
+//@Configuration
 @Lazy
 class MongoConfig {
 
