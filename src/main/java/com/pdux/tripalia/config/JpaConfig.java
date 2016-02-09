@@ -55,8 +55,8 @@ class JpaConfig {
 		} else {
 			System.out.println("Database URL: " + connectionString);
 			URI uri = new URI(connectionString);
-			String databaseJdbcURL = "jdbc:postgresql:" + uri.getHost() + ":"
-					+ uri.getPort();
+			String databaseJdbcURL = "jdbc:postgresql://" + uri.getHost() + ":"
+					+ uri.getPort()+uri.getPath();
 			System.out.println("Database jdbc URL: " + databaseJdbcURL);
 			config.setJdbcUrl(databaseJdbcURL);
 			System.out.println(uri.getRawUserInfo());
