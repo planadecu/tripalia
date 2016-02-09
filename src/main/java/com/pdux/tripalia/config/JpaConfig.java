@@ -52,7 +52,9 @@ class JpaConfig {
 			config.setUsername(username);
 			config.setPassword(password);
 		} else {
+			System.out.println("Database URL: " + databaseURL);
 			DatabaseUrl databaseUrl = new DatabaseUrl(databaseURL);
+			System.out.println("Database jdbc URL: " + databaseUrl.jdbcUrl());
 			config.setJdbcUrl(databaseUrl.jdbcUrl());
 			config.setUsername(databaseUrl.username());
 			config.setPassword(databaseUrl.password());
