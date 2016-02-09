@@ -53,13 +53,10 @@ class JpaConfig {
 			config.setPassword(password);
 		} else {
 			System.out.println("Database URL: " + databaseURL);
-			DatabaseUrl databaseUrl = new DatabaseUrl(databaseURL);
 			String databaseJdbcURL = "jdbc:postgresql:"
-					+ databaseUrl.jdbcUrl().replace("postgres:", "");
+					+ databaseURL.replace("postgres:", "");
 			System.out.println("Database jdbc URL: " + databaseJdbcURL);
 			config.setJdbcUrl(databaseJdbcURL);
-			config.setUsername(databaseUrl.username());
-			config.setPassword(databaseUrl.password());
 		}
 		config.addDataSourceProperty("ssl", "true");
 		config.addDataSourceProperty("sslfactory",
