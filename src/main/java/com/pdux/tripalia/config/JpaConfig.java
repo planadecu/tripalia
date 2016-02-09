@@ -54,13 +54,16 @@ class JpaConfig {
 		} else {
 			System.out.println("Database URL: " + databaseURL);
 			DatabaseUrl databaseUrl = new DatabaseUrl(databaseURL);
-			System.out.println("Database jdbc URL: " + databaseUrl.jdbcUrl());
-			config.setJdbcUrl(databaseUrl.jdbcUrl());
+			String databaseJdbcURL = "jdbc:postgresql:"
+					+ databaseUrl.jdbcUrl().replace("postgres:", "");
+			System.out.println("Database jdbc URL: " + databaseJdbcURL);
+			config.setJdbcUrl(databaseJdbcURL);
 			config.setUsername(databaseUrl.username());
 			config.setPassword(databaseUrl.password());
 		}
 		config.addDataSourceProperty("ssl", "true");
-		config.addDataSourceProperty("sslfactory", "org.postgresql.ssl.NonValidatingFactory");
+		config.addDataSourceProperty("sslfactory",
+				"org.postgresql.ssl.NonValidatingFactory");
 		config.addDataSourceProperty("cachePrepStmts", "true");
 		config.addDataSourceProperty("prepStmtCacheSize", "250");
 		config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
