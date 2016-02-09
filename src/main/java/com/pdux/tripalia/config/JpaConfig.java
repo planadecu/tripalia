@@ -1,5 +1,6 @@
 package com.pdux.tripalia.config;
 
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Properties;
 
@@ -45,18 +46,22 @@ class JpaConfig {
 	@Bean
 	public DataSource dataSource() throws URISyntaxException {
 		HikariConfig config = new HikariConfig();
-		String databaseURL = System.getenv("DATABASE_URL");
+		String connectionString = System.getenv("DATABASE_URL");
 		config.setDriverClassName(driver);
-		if (databaseURL == null) {
+		if (connectionString == null) {
 			config.setJdbcUrl(url);
 			config.setUsername(username);
 			config.setPassword(password);
 		} else {
-			System.out.println("Database URL: " + databaseURL);
-			String databaseJdbcURL = "jdbc:postgresql:"
-					+ databaseURL.replace("postgres:", "");
+			System.out.println("Database URL: " + connectionString);
+			URI uri = new URI(connectionString);
+			String databaseJdbcURL = "jdbc:postgresql:" + uri.getHost() + ":"
+					+ uri.getPort();
 			System.out.println("Database jdbc URL: " + databaseJdbcURL);
 			config.setJdbcUrl(databaseJdbcURL);
+			System.out.println(uri.getRawUserInfo());
+			config.setUsername(uri.getRawUserInfo().split(":")[0]);
+			config.setPassword(uri.getRawUserInfo().split(":")[1]);
 		}
 		config.addDataSourceProperty("ssl", "true");
 		config.addDataSourceProperty("sslfactory",
