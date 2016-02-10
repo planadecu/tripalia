@@ -9,8 +9,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import com.pdux.tripalia.Application;
 
 @Configuration
-@PropertySource("classpath:persistence-pgsql.properties")
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:persistence-pgsql-mongo.properties")
 @ComponentScan(basePackageClasses = Application.class)
 class ApplicationConfig {
 

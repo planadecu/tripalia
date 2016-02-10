@@ -1,6 +1,7 @@
 package com.pdux.tripalia.signup;
 
-import org.hibernate.validator.constraints.*;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.pdux.tripalia.account.Account;
 

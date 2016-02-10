@@ -7,9 +7,6 @@ import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,8 +19,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.util.ClassUtils;
 
-import com.heroku.sdk.jdbc.DatabaseUrl;
 import com.pdux.tripalia.Application;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableTransactionManagement
@@ -53,13 +51,10 @@ class JpaConfig {
 			config.setUsername(username);
 			config.setPassword(password);
 		} else {
-			System.out.println("Database URL: " + connectionString);
 			URI uri = new URI(connectionString);
 			String databaseJdbcURL = "jdbc:postgresql://" + uri.getHost() + ":"
-					+ uri.getPort()+uri.getPath();
-			System.out.println("Database jdbc URL: " + databaseJdbcURL);
+					+ uri.getPort() + uri.getPath();
 			config.setJdbcUrl(databaseJdbcURL);
-			System.out.println(uri.getRawUserInfo());
 			config.setUsername(uri.getRawUserInfo().split(":")[0]);
 			config.setPassword(uri.getRawUserInfo().split(":")[1]);
 		}

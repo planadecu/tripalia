@@ -1,10 +1,11 @@
 package com.pdux.tripalia.config;
 
+import javax.servlet.Filter;
+import javax.servlet.ServletRegistration;
+
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
-import javax.servlet.*;
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
