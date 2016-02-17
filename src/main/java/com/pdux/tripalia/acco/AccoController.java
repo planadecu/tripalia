@@ -37,7 +37,7 @@ public class AccoController {
 			return new ModelAndView("acco/acco", map);
 	}
 
-	@RequestMapping(path = "/{lang}/h/", method = RequestMethod.GET)
+	@RequestMapping(path = {"/{lang}/h/","/{lang}/h","/{lang}/","/{lang}"}, method = RequestMethod.GET)
 	public ModelAndView index(@PathVariable String lang)
 			throws InterruptedException, ExecutionException {
 		Page<Acco> accos = accoRespository.findAllByPage(new PageRequest(0,
@@ -46,5 +46,11 @@ public class AccoController {
 		map.put("accos", accos);
 		map.put("lang", lang);
 		return new ModelAndView("acco/list", map);
+	}
+	
+	@RequestMapping(path = {"/"}, method = RequestMethod.GET)
+	public String home()
+			throws InterruptedException, ExecutionException {
+		return "redirect:/en";
 	}
 }
