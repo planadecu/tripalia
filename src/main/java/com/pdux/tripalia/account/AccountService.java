@@ -3,8 +3,8 @@ package com.pdux.tripalia.account;
 import java.util.Collections;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,10 +24,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class AccountService implements UserDetailsService {
 	
-	@Autowired
+	@Inject
 	private AccountRepository accountRepository;
 
-	@Autowired
+	@Inject
 	private PasswordEncoder passwordEncoder;
 
 	@PostConstruct	

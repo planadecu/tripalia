@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.pdux.tripalia</groupId>
-	<artifactId>tripalia</artifactId>
+	<artifactId>tripalia-web</artifactId>
 	<packaging>war</packaging>
-	<version>0.1</version>
-	<name>Spring MVC Application</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Tripalia Frontend</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java-version>1.8</java-version>
@@ -22,6 +22,11 @@
 		<relativePath />
 	</parent>
 	<dependencies>
+		<dependency>
+			<groupId>com.pdux.tripalia</groupId>
+			<artifactId>tripalia-shared</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>

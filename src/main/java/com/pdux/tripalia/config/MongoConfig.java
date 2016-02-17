@@ -13,11 +13,14 @@ import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.convert.MongoTypeMapper;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import com.mongodb.MongoClientURI;
+import com.pdux.tripalia.Application;
 
 @Configuration
 @Lazy
+@EnableMongoRepositories(basePackageClasses = Application.class)
 class MongoConfig {
 	@Value("${mongo.url}")
 	private String url;
