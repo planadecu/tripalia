@@ -234,20 +234,6 @@
 							<goal>sources</goal>
 						</goals>
 					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
 					<execution>
 						<phase>package</phase>
 						<goals>
@@ -264,12 +250,6 @@
 							</artifactItems>
 						</configuration>
 					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
 					<execution>
 						<id>copy-new-relic</id>
 						<phase>package</phase>
@@ -284,6 +264,21 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+	<repositories>
+	    <repository>
+	        <id>project.local</id>
+	        <name>project</name>
+	        <url>file:${project.basedir}/repo</url>
+	    </repository>
+	</repositories>
 </project>

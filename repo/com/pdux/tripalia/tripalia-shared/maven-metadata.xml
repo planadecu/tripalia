@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.pdux.tripalia</groupId>
+  <artifactId>tripalia-shared</artifactId>
+  <versioning>
+    <versions>
+      <version>0.0.1-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20160217133258</lastUpdated>
+  </versioning>
+</metadata>
