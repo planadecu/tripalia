@@ -103,4 +103,6 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
 			return "forward:/resources/images/favicon.ico";
 		}
 	}
+	
+	
 }

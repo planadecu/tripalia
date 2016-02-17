@@ -32,7 +32,7 @@ public class SitemapController {
 		return new ModelAndView("sitemap/robots");
 	}
 
-	@RequestMapping(value = "/sitemap.xml", method = RequestMethod.GET, produces="plain/xml")
+	@RequestMapping(value = "/sitemap.xml", method = RequestMethod.GET)
 	@ResponseBody
 	public ModelAndView sitemap() {
 		int accoPages = findAllFieldsUrl(new PageRequest(0, PAGE_SIZE))
@@ -43,13 +43,13 @@ public class SitemapController {
 		return new ModelAndView("sitemap/sitemap", model);
 	}
 
-	@RequestMapping(value = "/sitemap-home.xml.gz", method = RequestMethod.GET, produces="plain/xml")
+	@RequestMapping(value = "/sitemap-home.xml.gz", method = RequestMethod.GET)
 	@ResponseBody
 	public ModelAndView sitemapHome() {
 		return new ModelAndView("sitemap/sitemap-home", "langs", LANGS);
 	}
 
-	@RequestMapping(value = "/sitemap-accos-{lang:[a-zA-Z]{2}}-{page}.xml.gz", method = RequestMethod.GET, produces="plain/xml")
+	@RequestMapping(value = "/sitemap-accos-{lang:[a-zA-Z]{2}}-{page}.xml.gz", method = RequestMethod.GET,produces = "plain/xml; charset=utf-8")
 	@ResponseBody
 	public ModelAndView sitemap(@PathVariable String lang,
 			@PathVariable Integer page) {
