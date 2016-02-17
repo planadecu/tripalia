@@ -44,7 +44,7 @@ class JpaConfig {
 	@Bean
 	public DataSource dataSource() throws URISyntaxException {
 		HikariConfig config = new HikariConfig();
-		String connectionString = System.getenv("DATABASE_URL");
+		String connectionString = null;//System.getenv("DATABASE_URL");
 		config.setDriverClassName(driver);
 		if (connectionString == null) {
 			config.setJdbcUrl(url);
