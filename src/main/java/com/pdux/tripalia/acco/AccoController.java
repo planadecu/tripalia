@@ -22,11 +22,11 @@ public class AccoController {
 	@Inject
 	private AccoRespository accoRespository;
 
-	@RequestMapping(path = "/{lang}/h/{name}", method = RequestMethod.GET)
+	@RequestMapping(path = "/{lang:[a-zA-Z]{2}}/h/{name}", method = RequestMethod.GET)
 	public ModelAndView index(@PathVariable String lang,
 			@PathVariable String name) throws InterruptedException,
 			ExecutionException, UnsupportedEncodingException {
-		Acco acco = accoRespository.findOneByName(
+		Acco acco = accoRespository.findOneByUrl(
 				URLDecoder.decode(name, "UTF-8").replaceAll("-", " ")).get();
 		Map<String, Object> map = new HashMap<>();
 		map.put("acco", acco);
@@ -37,10 +37,10 @@ public class AccoController {
 			return new ModelAndView("acco/acco", map);
 	}
 
-	@RequestMapping(path = {"/{lang}/h/","/{lang}/h","/{lang}/","/{lang}"}, method = RequestMethod.GET)
+	@RequestMapping(path = {"/{lang:[a-zA-Z]{2}}/h/","/{lang:[a-zA-Z]{2}}/h","/{lang:[a-zA-Z]{2}}/","/{lang:[a-zA-Z]{2}}"}, method = RequestMethod.GET)
 	public ModelAndView index(@PathVariable String lang)
 			throws InterruptedException, ExecutionException {
-		Page<Acco> accos = accoRespository.findAllByPage(new PageRequest(0,
+		Page<Acco> accos = accoRespository.findAllNameLang(new PageRequest(0,
 				100, new Sort(Sort.Direction.DESC, "name")));
 		Map<String, Object> map = new HashMap<>();
 		map.put("accos", accos);

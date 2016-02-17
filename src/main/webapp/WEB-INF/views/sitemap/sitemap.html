@@ -1,44 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap><loc>http://www.tripalia.info/sitemap-home.xml.gz</loc></sitemap>
+  <!--/*/ <th:block th:each="lang : ${langs}"> /*/-->
+  <sitemap th:each="i : ${#numbers.sequence(1, accoPages)}"><loc th:text="'http://www.tripalia.info/sitemap-accos-'+${lang}+'-'+${i}+'.xml.gz'">http://www.tripalia.info/sitemap-es-250.xml.gz</loc></sitemap>
+  <!--/*/ </th:block> /*/-->
+</sitemapindex>
 
-	<url>
-	  <loc>http://www.tripalia.info/</loc>
-	  <changefreq>hourly</changefreq>
-	</url>
-	<url>
-	  <loc>http://www.tripalia.info/en/h/</loc>
-	  <changefreq>hourly</changefreq>
-	</url>
-    <url th:each="acco_uri: ${acco_uris}">
-        <loc th:text="${'http://www.tripalia.info/en/'+acco_uri.uri}">http://www.tripalia.info/en/h/can-soler-de-rocabruna</loc>
-        <changefreq>hourly</changefreq>
-    </url>
-	<url>
-	  <loc>http://www.tripalia.info/es/h/</loc>
-	  <changefreq>hourly</changefreq>
-	</url>
-    <url th:each="acco_uri: ${acco_uris}">
-        <loc th:text="${'http://www.tripalia.info/es/'+acco_uri.uri}">http://www.tripalia.info/en/h/can-soler-de-rocabruna</loc>
-        <changefreq>hourly</changefreq>
-    </url>
-	<url>
-	  <loc>http://www.tripalia.info/fr/h/</loc>
-	  <changefreq>hourly</changefreq>
-	</url>
-    <url th:each="acco_uri: ${acco_uris}">
-        <loc th:text="${'http://www.tripalia.info/fr/'+acco_uri.uri}">http://www.tripalia.info/en/h/can-soler-de-rocabruna</loc>
-        <changefreq>hourly</changefreq>
-    </url>
-	<url>
-	  <loc>http://www.tripalia.info/en/h/</loc>
-	  <changefreq>hourly</changefreq>
-	</url>
-    <url th:each="acco_uri: ${acco_uris}">
-        <loc th:text="${'http://www.tripalia.info/de/'+acco_uri.uri}">http://www.tripalia.info/en/h/can-soler-de-rocabruna</loc>
-        <changefreq>hourly</changefreq>
-    </url>
-</urlset>
